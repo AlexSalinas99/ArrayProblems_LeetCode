@@ -1,0 +1,19 @@
+class Solution(object):
+        def twoSum(self, nums, target):
+            """
+            :type nums: List[int]
+            :type target: int
+            :rtype: List[int]
+            """
+            answers_list = [] #Create array to save return list of indices
+            for element in nums:
+                new_target = target - element 
+                if element == new_target and nums.count(element) > 1: #If new_target is in the list and is being repeated
+                    first_index = nums.index(element)
+                    answers_list = [first_index, nums.index(new_target, first_index + 1)] #Solution to problem of repeating index for same element
+                    return answers_list
+                    
+                elif element != new_target and new_target in nums: #If new target is in the list and is different of the actual element
+                    answers_list = [nums.index(element), nums.index(new_target)]
+                    return answers_list
+                
